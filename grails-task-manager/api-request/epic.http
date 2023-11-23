@@ -1,0 +1,32 @@
+#### Создать эпик
+POST http://localhost:8080/epic
+Content-Type: application/json
+
+{
+  "name": "Нарисовать картину",
+  "created": "2023-11-20T06:30:00"
+}
+
+> {%
+client.global.set('id', response.body.id)
+ %}
+
+#### Обновить эпик по id
+PUT http://localhost:8080/epic/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Прочитать книгу"
+}
+
+#### Получить эпик по id
+GET http://localhost:8080/epic/{{id}}
+Content-Type: application/json
+
+#### Получить список эпик
+GET http://localhost:8080/epic
+Content-Type: application/json
+
+#### Удалить эпик по id
+DELETE http://localhost:8080/epic/{{id}}
+Content-Type: application/json

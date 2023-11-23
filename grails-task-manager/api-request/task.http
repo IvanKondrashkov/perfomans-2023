@@ -1,0 +1,35 @@
+#### Создать таску
+POST http://localhost:8080/task
+Content-Type: application/json
+
+{
+  "name": "Найти краски",
+  "created": "2023-11-23T06:30:00",
+  "epic": {
+    "id": 1
+  }
+}
+
+> {%
+client.global.set('id', response.body.id)
+ %}
+
+#### Обновить таску по id
+PUT http://localhost:8080/task/{{id}}
+Content-Type: application/json
+
+{
+  "name": "Прочитать книгу"
+}
+
+#### Получить таску по id
+GET http://localhost:8080/task/{{id}}
+Content-Type: application/json
+
+#### Получить список таск
+GET http://localhost:8080/task
+Content-Type: application/json
+
+#### Удалить таску по id
+DELETE http://localhost:8080/task/{{id}}
+Content-Type: application/json
