@@ -1,0 +1,3 @@
+rootProject.name = 'perfomans-2023'
+include 'oop'
+include 'groovy'
