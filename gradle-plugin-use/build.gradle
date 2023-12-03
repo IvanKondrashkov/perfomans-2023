@@ -1,0 +1,17 @@
+plugins {
+    id 'groovy'
+    id('ru.kondrashkov.codegen')
+}
+
+group 'ru.kondrashkov'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+codegen {
+    field = 'name'
+    className = 'Employee'
+    packageName = 'ru.kondrashkov'
+}

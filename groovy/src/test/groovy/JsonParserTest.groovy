@@ -27,7 +27,7 @@ class JsonParserTest {
     }
 
     @Test
-    void jsonToHtml() {
+    void checkJsonToHtml() {
         def text = html.text
         def slurper = new XmlSlurper().parseText(text)
 
@@ -41,7 +41,7 @@ class JsonParserTest {
     }
 
     @Test
-    void jsonToXml() {
+    void checkJsonToXml() {
         def text = xml.text
         def slurper = new XmlSlurper().parseText(text)
 

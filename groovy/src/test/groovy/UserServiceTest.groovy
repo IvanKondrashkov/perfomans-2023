@@ -24,7 +24,7 @@ class UserServiceTest {
     }
 
     @Test
-    void getMapByUser() {
+    void checkGetMapByUser() {
         def users = [new User(1, 'Djon'), new User(2, 'Bob'), new User(3, 'Nik')]
         def map = userService.getMapByUsers(users)
 
@@ -35,7 +35,7 @@ class UserServiceTest {
     }
 
     @Test
-    void getMapByTwoList() {
+    void checkGetMapByTwoList() {
         def names = ['Djon', 'Bob', 'Nik']
         def ages = [22, 33, 45]
         def map = userService.getMapByTwoList(names, ages)
@@ -47,7 +47,7 @@ class UserServiceTest {
     }
 
     @Test
-    void createUser() {
+    void checkCreateUser() {
         def data = [1, 'Djon']
         def user = userService.createUser(data)
 
@@ -57,7 +57,7 @@ class UserServiceTest {
     }
 
     @Test
-    void createLogin() {
+    void checkCreateLogin() {
         def user = new User(1, 'Djon')
         def credentials = loginService.createLogin(user, 'qwerty', '123456')
 
@@ -73,7 +73,7 @@ class UserServiceTest {
     }
 
     @Test
-    void createLoginByNotUser() {
+    void checkCreateLoginByNotUser() {
         try {
             loginService.createLogin(null, 'qwerty', '123456')
         } catch (Exception ex) {
@@ -82,7 +82,7 @@ class UserServiceTest {
     }
 
     @Test
-    void getUserAgeInterval() {
+    void checkGetUserAgeInterval() {
         def indx = userService.getUserAgeInterval(10..100)
 
         assert indx.from == 10

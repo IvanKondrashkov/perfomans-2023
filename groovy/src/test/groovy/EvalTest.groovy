@@ -4,7 +4,7 @@ import ru.kondrashkov.eval.Eval
 class EvalTest {
 
     @Test
-    void byExpression() {
+    void checkByExpression() {
         def actual = Eval.byExpression(10, 5, 2, 'x + y * z')
 
         assert actual == 20

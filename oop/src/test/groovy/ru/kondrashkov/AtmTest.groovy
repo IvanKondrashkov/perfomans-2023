@@ -7,7 +7,6 @@ import ru.kondrashkov.service.Atm
 import ru.kondrashkov.model.Card
 import ru.kondrashkov.model.Money
 import ru.kondrashkov.model.Currency
-import static org.junit.jupiter.api.Assertions.assertEquals
 import static org.junit.jupiter.api.Assertions.assertThrows
 
 class AtmTest {
@@ -28,15 +27,15 @@ class AtmTest {
     }
 
     @Test
-    void plus() {
+    void checkPlus() {
         Money money1 = new Money(100, Currency.RUB)
         money = service + money1
 
-        assertEquals(service.balance(money.currency), 100)
+        assert service.balance(money.currency) == 100
     }
 
     @Test
-    void minus() {
+    void checkMinus() {
         Money money1 = new Money(100, Currency.RUB)
         money = service + money1
         Money money2 = new Money(300, Currency.RUB)
@@ -44,11 +43,11 @@ class AtmTest {
         Money money3 = new Money(200, Currency.RUB)
         money = service - money3
 
-        assertEquals(service.balance(money.currency), 200)
+        assert service.balance(money.currency) == 200
     }
 
     @Test
-    void takeByNotValidAmount() {
+    void checkTakeByNotValidAmount() {
         Money money1 = new Money(1000, Currency.RUB)
 
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
@@ -58,23 +57,23 @@ class AtmTest {
         String expectedMessage = exception.getMessage()
         String actualMessage = "Your balance=${service.balance(money.currency)} is less than the requested amount=${money1.amount}!"
 
-        assertEquals(expectedMessage, actualMessage)
+        assert expectedMessage == actualMessage
     }
 
     @Test
-    void balance() {
+    void checkBalance() {
         Money money1 = new Money(100, Currency.RUB)
         money = service + money1
 
-        assertEquals(service.balance(money.currency), 100)
+        assert service.balance(money.currency) == 100
     }
 
     @Test
-    void clear() {
+    void checkClear() {
         Money money1 = new Money(100, Currency.RUB)
         money = service + money1
         service.clear(money.currency)
 
-        assertEquals(service.balance(money.currency), 0)
+        assert service.balance(money.currency) == 0
     }
 }

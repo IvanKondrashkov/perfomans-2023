@@ -20,7 +20,7 @@ class UserRepoTest {
     }
 
     @Test
-    void findById() {
+    void checkFindById() {
         def user = userRepo.save(new User(null, 'Djon'))
 
         assert user.id == 1
@@ -33,7 +33,7 @@ class UserRepoTest {
     }
 
     @Test
-    void findAll() {
+    void checkFindAll() {
         def names = ['Djon', 'Bob', 'Nik']
 
         names.each {
@@ -48,7 +48,7 @@ class UserRepoTest {
     }
 
     @Test
-    void save() {
+    void checkSave() {
         def names = ['Djon', 'Bob', 'Nik']
         def users = []
 
@@ -64,7 +64,7 @@ class UserRepoTest {
     }
 
     @Test
-    void updateById() {
+    void checkUpdateById() {
         def user = userRepo.save(new User(null, 'Djon'))
 
         assert user.id == 1
@@ -79,7 +79,7 @@ class UserRepoTest {
     }
 
     @Test
-    void deleteById() {
+    void checkDeleteById() {
         def user = userRepo.save(new User(null, 'Djon'))
 
         assert user.id == 1
